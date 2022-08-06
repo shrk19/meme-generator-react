@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Meme from './components/Meme';
 import MemeGenerated from './components/MemeGenerated';
+
 import {
   Routes,
   Route,
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<Meme/>} />
         <Route path="/generated" element={<MemeGenerated/>} />
       </Routes>
+    
     </>
   );
 }

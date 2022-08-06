@@ -9,14 +9,6 @@ export default function Meme() {
   const [allMemeData, setAllMemeData] = useState({});
   // random meme index
   const [memeIndex, setMemeIndex] = useState(0);
-
-  // meme template image
-  // const [formData, setFormData] = useState({
-  //   // topText: "", 
-  //   // bottomText: "", 
-  //   memeImage: "https://i.imgflip.com/39t1o.jpg"
-  // });
-
   // meme caption 
   const [captions, setCaptions] = useState([]);
 
@@ -40,15 +32,8 @@ export default function Meme() {
 
   function getImage(){
     setMemeIndex(Math.floor(Math.random()*100));
-    // let random = Math.floor(Math.random()*100);
-          // let randomImage = allMemeData[memeIndex].url;
-          // setFormData(()=>{
-          //   return {
-          //     // ...prevMeme, 
-          //     memeImage: randomImage
-          //   }
-          // });
   }
+
   function updateCaption(event, index){
     const text = event.target.value || "";
     setCaptions(
@@ -61,6 +46,7 @@ export default function Meme() {
       })
     )
   }
+
   function generateMeme(){
     const currentMeme = allMemeData[memeIndex];
     const formData = new FormData();
@@ -70,16 +56,13 @@ export default function Meme() {
     formData.append("template_id", currentMeme.id);
     captions.forEach((c, index)=> formData.append(`boxes[${index}][text]`, c));
 
+
     fetch("https://api.imgflip.com/caption_image", {
       method: "POST",
       body: formData
     })
     .then(res => res.json())
-    .then(data => 
-      {navigate(`/generated?url=${data.data.url}`);
-      console.log(data);
-    });
-
+    .then(data => navigate(`/generated?url=${data.data.url}`));
   }
   return (
       <div className='form'>
@@ -88,7 +71,7 @@ export default function Meme() {
           className="button" 
           type='submit'
           onClick={getImage}>
-            Get a new meme image 🖼
+            Get a new meme image <span className='emoji'>&#128444;</span> 
         </button>
 
         {/* caption input fields */}
@@ -107,10 +90,7 @@ export default function Meme() {
           onClick={generateMeme}>
             Generate Meme
         </button>
-    </div>
-    
-   
-    
+    </div> 
   )
 }
 
