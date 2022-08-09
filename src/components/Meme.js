@@ -50,7 +50,7 @@ export default function Meme() {
     allEqual( captions )  // true
 
     if(captions[0]==='' && allEqual){
-      alert("chutia");
+      alert("Enter captions to generate.");
     }else {
 
       const currentMeme = allMemeData[memeIndex];
