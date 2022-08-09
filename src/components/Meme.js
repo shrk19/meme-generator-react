@@ -43,22 +43,32 @@ export default function Meme() {
     )
   }
 
+
   function generateMeme(){
-    const currentMeme = allMemeData[memeIndex];
-    const formData = new FormData();
+  
+    const allEqual = captions => captions.every( v => v === captions[0] )
+    allEqual( captions )  // true
+
+    if(captions[0]==='' && allEqual){
+      alert("chutia");
+    }else {
+
+      const currentMeme = allMemeData[memeIndex];
+      const formData = new FormData();
     
-    formData.append("username", process.env.REACT_APP_MEME_API_USERNAME);
-    formData.append("password", process.env.REACT_APP_MEME_API_PASSWORD);
-    formData.append("template_id", currentMeme.id);
-    captions.forEach((c, index)=> formData.append(`boxes[${index}][text]`, c));
+      formData.append("username", process.env.REACT_APP_MEME_API_USERNAME);
+      formData.append("password", process.env.REACT_APP_MEME_API_PASSWORD);
+      formData.append("template_id", currentMeme.id);
+      captions.forEach((c, index)=> formData.append(`boxes[${index}][text]`, c));
 
+      fetch("https://api.imgflip.com/caption_image", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {navigate(`/generated?url=${data.data.url}`);});
 
-    fetch("https://api.imgflip.com/caption_image", {
-      method: "POST",
-      body: formData
-    })
-    .then(res => res.json())
-    .then(data => {navigate(`/generated?url=${data.data.url}`);});
+    }
   }
   return (
       <div className='form'>
