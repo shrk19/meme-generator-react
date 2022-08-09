@@ -26,10 +26,6 @@ export default function Meme() {
     }
   }, [memeIndex, allMemeData]);
 
-  React.useEffect(()=>{
-    console.log(captions)
-  }, [captions])
-
   function getImage(){
     setMemeIndex(Math.floor(Math.random()*100));
   }
@@ -62,7 +58,7 @@ export default function Meme() {
       body: formData
     })
     .then(res => res.json())
-    .then(data => navigate(`/generated?url=${data.data.url}`));
+    .then(data => {navigate(`/generated?url=${data.data.url}`);});
   }
   return (
       <div className='form'>

@@ -5,24 +5,50 @@ body {
   background-image: url("../public/images/bg.png");
   background-size: cover;
   background-attachment: fixed;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  height: 57px;
+  padding: 20px 7px;
+}
+.title {
+  display: flex;
+  align-items: center;
 }
 .navbar {
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: white;
   font-size: 30px;
   line-height: 24px;
   letter-spacing: -0.1em;
+  gap: 2rem;
+  padding: 0 2rem;
 }
-.logo {
-  height: 57px;
-  padding: 20px 7px 20px 60px;
+.navbar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
+.navbar a {
+  color: inherit;
+  font-size: 25px;
+}
+.navbar li:hover {
+  color: #711F8D;
+}
+
 .form {
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 17px;
   margin: auto;
   padding: 50px 0 ;
 }
@@ -32,6 +58,7 @@ body {
   border: 1px solid #D5D4D8;
   text-indent: 5px;
   padding: 10px;
+  margin-top: 10px;
 }
 button{
   font-family: 'Karla', sans-serif;
@@ -42,6 +69,7 @@ button{
   border:none;
   cursor: pointer;
   padding: 10px;
+  margin-top: 10px;
  
 }
 .yellow{
@@ -66,4 +94,38 @@ button{
   .form {
     width:90%;
   }
+  h1{
+    font-size: 30px;
+  }
+  .logo{
+    height: 50px;
+    padding: 0;
+  }
+  .navbar a {
+    font-size: 20px;
+  }
+  .navbar {
+    padding: 0 1rem;
+  }
+}
+.image {
+  max-width: 300px;
+  border-radius: 10px;
+}
+.card {
+  display: flex;
+  width: 300px;
+  height: fit-content;
+  display: inline-block;
+  padding: 10px;
+  margin: 15px;
+  border: 1px solid black;  
+  border-radius: 15px;
+}
+.next-button {
+  width: 300px;
+  margin: 50px;
+}
+.next-button-div {
+  text-align: center;
 }
