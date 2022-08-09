@@ -89,6 +89,24 @@ button{
 .emoji {
   font-family: "Segoe UI Emoji";
 }
+@media only screen and (max-width: 1180px) {
+  .form {
+    width:40%;
+  }
+  /* h1{
+    font-size: 30px;
+  } */
+  .logo{
+    height: 50px;
+    padding: 0;
+  }
+  .navbar a {
+    font-size: 20px;
+  }
+  .navbar {
+    padding: 0 1rem;
+  }
+}
 @media only screen and (max-width: 600px) {
   .form {
     width:90%;
