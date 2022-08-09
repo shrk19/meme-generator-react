@@ -9,7 +9,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .logo {
   height: 57px;
   padding: 20px 7px;
@@ -112,15 +111,21 @@ button{
   max-width: 300px;
   border-radius: 10px;
 }
+.container {
+  width: 100%;
+  margin: 20px auto;
+  columns: 4;
+  column-gap: 40px;
+}
 .card {
-  display: flex;
   width: 300px;
   height: fit-content;
-  display: inline-block;
   padding: 10px;
-  margin: 15px;
+  margin: 20px;
+  overflow: hidden;
   border: 1px solid black;  
   border-radius: 15px;
+
 }
 .next-button {
   width: 300px;
@@ -128,4 +133,19 @@ button{
 }
 .next-button-div {
   text-align: center;
+}
+@media (max-width: 1470px) {
+  .container {
+    columns: 3;
+  }
+}
+@media (max-width: 1160px) {
+  .container {
+    columns: 2;
+  }
+}
+@media (max-width: 750px) {
+  .container {
+    columns: 1;
+  }
 }

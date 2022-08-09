@@ -30,7 +30,7 @@ export default function Explore() {
 
   return (
     <>
-    <div>
+    <div className='container'>
     {memeCardsElements? memeCardsElements: <h1>Slow internet connection</h1> }
     </div>
     
